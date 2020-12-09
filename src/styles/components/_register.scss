@@ -1,6 +1,30 @@
 .group {
   position: relative;
   margin-bottom: 3.2rem;
+  transition: ease-in-out all 0.3s;
+}
+
+.eye_visible {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  color: black;
+}
+
+.progress_bar {
+  height: 0.5rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 3.2rem;
+  left: 7rem;
+}
+
+.bar_message {
+  position: absolute;
+  right: 0rem;
+  top: 3.2rem;
+  font-size: 0.8rem;
+  transition: ease-in-out all 0.3s;
 }
 
 .error {
