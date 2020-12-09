@@ -1,0 +1,242 @@
+.landing-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: url("../../assets/landing.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  transition: ease-in-out all 0.5s;
+  display: inline-block;
+
+  &-layer {
+    background: #87678e59;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_block {
+    position: absolute;
+    width: 55rem;
+    height: 25rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &-title {
+      text-align: center;
+      font-size: $font-size-11;
+      color: $white;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
+
+    &-subtitle {
+      text-align: center;
+      font-size: $font-size-8;
+      color: $white;
+      text-transform: uppercase;
+      margin-top: $spacing-4;
+      font-weight: lighter;
+      letter-spacing: 0.2rem;
+    }
+  }
+}
+
+.primary_button {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: $white;
+  font-weight: 700;
+  font-size: 15px;
+  background-color: $black;
+  padding: 17px 60px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  &-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: $primary;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+
+  &:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+}
+
+.login-container {
+  transition: ease-in-out all 0.5s;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background: $lightGrey;
+  height: 100vh;
+
+  &_tablist {
+    margin: 2rem;
+    width: 25vw;
+    position: absolute;
+    top: 10%;
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+
+    &-section {
+      padding: 0.8rem;
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+      transition: ease-in-out all 0.5s;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      cursor: pointer;
+    }
+
+    &-login {
+      margin: 2rem;
+      padding: 1rem;
+      height: auto;
+    }
+  }
+}
+
+.flip-card {
+  background-color: transparent;
+  margin-top: 2rem;
+  padding: 1rem;
+  height: auto;
+  perspective: 1000px;
+
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: $secondary;
+}
+
+.flip-card-back {
+  color: $primary;
+  transform: rotateY(180deg);
+}
+
+.outer {
+  position: absolute;
+  margin: auto;
+  width: 2rem;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+}
+
+.inner {
+  width: inherit;
+  text-align: center;
+}
+
+.close {
+  font-size: 0.8em;
+  line-height: 4em;
+  text-transform: uppercase;
+  color: $primary;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.inner:before,
+.inner:after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: inherit;
+  background: $secondary;
+  left: 0;
+  transition: all 0.3s ease-in;
+}
+
+.inner:before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+.inner:after {
+  bottom: 50%;
+  transform: rotate(-45deg);
+}
+
+.outer:hover .close {
+  opacity: 1;
+}
+
+.outer:hover .inner:before,
+.outer:hover .inner:after {
+  transform: rotate(0);
+}
+
+.outer:hover .inner:before {
+  top: 0;
+}
+
+.outer:hover .inner:after {
+  bottom: 0;
+}
+
+// .tag {
+//   width: 2rem;
+//   height: 2rem;
+//   border: 1px solid $primary;
+//   position: absolute;
+//   right: 1rem;
+//   top: 1rem;
+
+//   &-remove::before {
+//     content: "x";
+//     color: $primary;
+//     font-weight: 300;
+//     font-size: $font-size-5;
+//     align-items: center;
+//     cursor: pointer;
+//     left: 0.5rem;
+//     position: absolute;
+//   }
+// }

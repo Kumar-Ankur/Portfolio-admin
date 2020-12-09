@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,400;0,700;1,400;1,700&family=Vesper+Libre:wght@400;500;700;900&display=swap");
+@font-face {
+  font-family: "fortescue";
+  src: url("./fonts/Fortescue/FortescueProMedian-Bold.ttf");
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "fortescue";
+  src: url("./fonts/Fortescue/FortescueProMedian-LightItalic.ttf");
+  font-weight: lighter;
+  font-style: italic;
+  font-display: swap;
+}
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./layout.scss";
+
+@import "./components/landing";
+@import "./components/register";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $default-font-size;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: $sans-serif-font;
+  overscroll-behavior-y: none;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
