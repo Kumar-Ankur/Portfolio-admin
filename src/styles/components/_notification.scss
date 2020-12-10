@@ -1,0 +1,25 @@
+.notification_banner {
+  position: fixed;
+  padding: 1rem;
+  width: 100vw;
+  top: 0;
+  height: auto;
+  background: linear-gradient(to right, #c8a7b6, #321f28);
+  z-index: 10000;
+  color: #2d2d34;
+  transition: ease-in-out all 0.3s;
+  letter-spacing: 0.06rem;
+  font-size: 1.2rem;
+
+  &-icon {
+    position: relative;
+    margin-right: 0.6rem;
+    top: 0.1rem;
+  }
+  &-close {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    color: $white;
+  }
+}

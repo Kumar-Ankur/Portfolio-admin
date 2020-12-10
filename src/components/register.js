@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import NotificationContext from "../context/notification/notification-context";
 import Button from "./presentation/button";
 
 const Register = () => {
+  const { setNotificationMessage, setIsVisible } = useContext(NotificationContext);
   const [isEyeVisible, setIsEyeVisible] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isHintVisible, setIsHintVisible] = useState(false);
@@ -16,6 +18,8 @@ const Register = () => {
   const [progressWidth, setProgressWidth] = useState(10);
   const [progressColor, setProgressColor] = useState("red");
   const [progressText, setProgressText] = useState("Too weak");
+  const [isVerified, setIsVerified] = useState(true);
+  const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
   const validateEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -94,8 +98,66 @@ const Register = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsVisible(false);
+    if (isVerified) {
+      fetch("http://localhost:4000/user/verify", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.verifyEmail && res.verifyEmail.status === "In_Active") {
+            setIsVerified(true);
+            setIsRegisterVisible(false);
+            setNotificationMessage(res.message);
+            setIsVisible(true);
+          } else if (res.verifyEmail && res.verifyEmail.status === "active") {
+            setIsRegisterVisible(true);
+            setNotificationMessage(res.message);
+            setIsVisible(true);
+          } else if (!res.status) {
+            setIsVerified(false);
+            setIsRegisterVisible(false);
+            setNotificationMessage(res.message);
+            setIsVisible(true);
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      fetch("http://localhost:4000/user/request", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.status && res.status === "fail") {
+            setIsVerified(true);
+            setIsRegisterVisible(false);
+            setNotificationMessage(res.message);
+            setIsVisible(true);
+          } else {
+            setIsVerified(true);
+            setIsRegisterVisible(false);
+            setNotificationMessage(res.message);
+            setIsVisible(true);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <div className="group">
         <input type="text" value={fname} onChange={(e) => setFirstName(e.target.value)} />
         <span className="highlight"></span>
@@ -162,7 +224,25 @@ const Register = () => {
         </div>
       )}
 
-      <Button name="Sign Up" />
+      {fname !== "" &&
+        lname !== "" &&
+        email !== "" &&
+        password !== "" &&
+        cpassword !== "" &&
+        isEmailValid &&
+        isPasswordValid &&
+        isPasswordMatch &&
+        !isRegisterVisible && <Button name={isVerified ? "Verify" : "Request"} type="submit" />}
+
+      {fname !== "" &&
+        lname !== "" &&
+        email !== "" &&
+        password !== "" &&
+        cpassword !== "" &&
+        isEmailValid &&
+        isPasswordValid &&
+        isPasswordMatch &&
+        isRegisterVisible && <Button name="Sign up" type="submit" />}
     </form>
   );
 };

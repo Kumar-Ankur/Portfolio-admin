@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Typed from "react-typed";
+import NotificationBanner from "./presentation/notification";
 import "../styles/app.scss";
 import Button from "./presentation/button";
 import Register from "./register";
+import NotificationContext from "../context/notification/notification-context";
 
 const LandingPage = () => {
+  const { isVisible, isLoginSelected, setIsLoginSelected } = useContext(NotificationContext);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [leftPanelWidth, setLeftPanelWidth] = useState(100);
   const [rightPanelWidth, setRightPanelWidth] = useState(0);
   const [blockWidth, setBlockWidth] = useState(55);
-  const [isLoginSelected, setIsLoginSelected] = useState(true);
   const [flipCartRotate, setFlipCartRotate] = useState(0);
 
   const handleButtonClick = () => {
@@ -44,6 +46,7 @@ const LandingPage = () => {
 
   return (
     <>
+      {isVisible && <NotificationBanner />}
       <div className="landing-container" style={{ width: `${leftPanelWidth}vw` }}>
         <div className="landing-container-layer">
           <div className="landing-container_block" style={{ width: `${blockWidth}vw` }}>

@@ -1,10 +1,13 @@
 import React from "react";
 import LandingPage from "./components/landing";
+import NotificationState from "./context/notification/notification-state";
 
 const App = () => {
   return (
     <div>
-      <LandingPage />
+      <NotificationState>
+        <LandingPage />
+      </NotificationState>
     </div>
   );
 };
