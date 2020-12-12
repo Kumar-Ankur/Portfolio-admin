@@ -112,7 +112,6 @@ const LandingPage = () => {
                       </div>
 
                       <Button name="Proceed" />
-                      {/* <ClipLoader size={20} color={"#fff"} loading={true} /> */}
                     </form>
                   )}
                 </div>

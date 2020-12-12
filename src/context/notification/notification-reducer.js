@@ -32,6 +32,12 @@ const NotificationReducer = (state, action) => {
         isSpinnerVisible: action.payload,
       };
 
+    case "SET_USER_DETAIL":
+      return {
+        ...state,
+        userDetail: [...state.userDetail, action.payload],
+      };
+
     default:
       return state;
   }

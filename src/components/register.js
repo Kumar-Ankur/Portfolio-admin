@@ -102,7 +102,31 @@ const Register = () => {
     e.preventDefault();
     setIsVisible(false);
     setIsSpinnerVisible(true);
-    if (isVerified) {
+
+    if (isRegisterVisible) {
+      fetch("http://localhost:4000/user/register", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ firstName: fname, lastName: lname, email, password }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          setIsSpinnerVisible(false);
+          setNotificationMessage(res.message);
+          setIsVisible(true);
+          if (res.status === "success") {
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+          }
+        })
+        .catch((err) => console.log(err));
+    } else if (isVerified) {
       fetch("http://localhost:4000/user/verify", {
         method: "POST",
         headers: {
@@ -227,25 +251,9 @@ const Register = () => {
         </div>
       )}
 
-      {fname !== "" &&
-        lname !== "" &&
-        email !== "" &&
-        password !== "" &&
-        cpassword !== "" &&
-        isEmailValid &&
-        isPasswordValid &&
-        isPasswordMatch &&
-        !isRegisterVisible && <Button name={isVerified ? "Verify" : "Request"} type="submit" />}
-
-      {fname !== "" &&
-        lname !== "" &&
-        email !== "" &&
-        password !== "" &&
-        cpassword !== "" &&
-        isEmailValid &&
-        isPasswordValid &&
-        isPasswordMatch &&
-        isRegisterVisible && <Button name="Sign up" type="submit" />}
+      {fname !== "" && lname !== "" && email !== "" && password !== "" && cpassword !== "" && isEmailValid && isPasswordValid && isPasswordMatch && (
+        <Button name={isRegisterVisible ? "Sign up" : isVerified ? "Verify" : "Request"} type="submit" />
+      )}
     </form>
   );
 };
