@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import NotificationContext from "../context/notification/notification-context";
+import { validateEmail, validatePassword, hasNumber, hasMixed, hasSpecial } from "../utility";
 import Button from "./presentation/button";
 
 const Register = () => {
@@ -21,17 +22,6 @@ const Register = () => {
   const [isVerified, setIsVerified] = useState(true);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
-  const validateEmail = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  };
-
-  const validatePassword = (pass) => {
-    // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
-    const pass_regex = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
-    return pass_regex.test(String(pass));
-  };
-
   const validateAndSetPassword = (e) => {
     setPassword(e.target.value);
     checkProgressBar(e.target.value);
@@ -44,16 +34,6 @@ const Register = () => {
   };
 
   const checkProgressBar = (pass) => {
-    const hasNumber = (value) => {
-      return new RegExp(/[0-9]/).test(value);
-    };
-    const hasMixed = (value) => {
-      return new RegExp(/[a-z]/).test(value) && new RegExp(/[A-Z]/).test(value);
-    };
-    const hasSpecial = (value) => {
-      return new RegExp(/[!#@$%^&*)(+=._-]/).test(value);
-    };
-
     if (pass.length < 3) {
       setProgressWidth(10);
       setProgressColor("red");
