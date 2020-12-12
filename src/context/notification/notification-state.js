@@ -8,7 +8,6 @@ const NotificationState = (props) => {
     isVisible: false,
     isLoginSelected: true,
     isSpinnerVisible: false,
-    userDetail: [],
   };
 
   const [state, dispatch] = useReducer(NotificationReducer, initialState);
@@ -54,6 +53,13 @@ const NotificationState = (props) => {
     });
   };
 
+  const setUserLoggedIn = (value) => {
+    dispatch({
+      type: "SET_IS_USER_LOGGED_IN",
+      payload: value,
+    });
+  };
+
   return (
     <NotificationContext.Provider
       value={{
@@ -61,13 +67,11 @@ const NotificationState = (props) => {
         isVisible: state.isVisible,
         isLoginSelected: state.isLoginSelected,
         isSpinnerVisible: state.isSpinnerVisible,
-        userDetail: state.userDetail,
         setNotificationMessage,
         emptyNotificationMessage,
         setIsVisible,
         setIsLoginSelected,
         setIsSpinnerVisible,
-        setUserDetail,
       }}
     >
       {props.children}

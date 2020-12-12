@@ -1,15 +1,10 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import LandingPage from "./components/landing";
-import NotificationState from "./context/notification/notification-state";
 
 const App = () => {
-  return (
-    <div>
-      <NotificationState>
-        <LandingPage />
-      </NotificationState>
-    </div>
-  );
+  const isUseuLoggedIn = sessionStorage.getItem("isUserLoggedIn");
+  return <div>{isUseuLoggedIn ? <Redirect to="/dashboard" /> : <LandingPage />}</div>;
 };
 
 export default App;

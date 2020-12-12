@@ -4,6 +4,7 @@ import NotificationBanner from "./presentation/notification";
 import "../styles/app.scss";
 import Button from "./presentation/button";
 import Register from "./register";
+import Login from "./login";
 import Spinner from "./presentation/spinner";
 import NotificationContext from "../context/notification/notification-context";
 
@@ -14,6 +15,10 @@ const LandingPage = () => {
   const [rightPanelWidth, setRightPanelWidth] = useState(0);
   const [blockWidth, setBlockWidth] = useState(55);
   const [flipCartRotate, setFlipCartRotate] = useState(0);
+
+  const setUserLoggedInStatus = (value) => {
+    sessionStorage.setItem("isUserLoggedIn", value);
+  };
 
   const handleButtonClick = () => {
     if (!isButtonClicked) {
@@ -65,7 +70,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
       {isButtonClicked && (
         <div className="login-container" style={{ width: `${rightPanelWidth}vw` }}>
           <div className="outer">
@@ -94,27 +98,7 @@ const LandingPage = () => {
 
             <div className="flip-card">
               <div className="flip-card-inner" style={{ transform: `rotateY(${flipCartRotate}deg)` }}>
-                <div className="flip-card-front">
-                  {isLoginSelected && (
-                    <form>
-                      <div className="group">
-                        <input type="text" required />
-                        <span className="highlight"></span>
-                        <span className="bar"></span>
-                        <label className="group_text">Email</label>
-                      </div>
-
-                      <div className="group">
-                        <input type="text" required />
-                        <span className="highlight"></span>
-                        <span className="bar"></span>
-                        <label className="group_text">Password</label>
-                      </div>
-
-                      <Button name="Proceed" />
-                    </form>
-                  )}
-                </div>
+                <div className="flip-card-front">{isLoginSelected && <Login setUserLoggedInStatus={setUserLoggedInStatus} />}</div>
                 <div className="flip-card-back">{!isLoginSelected && <Register />}</div>
               </div>
             </div>
