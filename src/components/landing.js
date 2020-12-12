@@ -4,10 +4,11 @@ import NotificationBanner from "./presentation/notification";
 import "../styles/app.scss";
 import Button from "./presentation/button";
 import Register from "./register";
+import Spinner from "./presentation/spinner";
 import NotificationContext from "../context/notification/notification-context";
 
 const LandingPage = () => {
-  const { isVisible, isLoginSelected, setIsLoginSelected } = useContext(NotificationContext);
+  const { isVisible, isLoginSelected, setIsLoginSelected, isSpinnerVisible } = useContext(NotificationContext);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [leftPanelWidth, setLeftPanelWidth] = useState(100);
   const [rightPanelWidth, setRightPanelWidth] = useState(0);
@@ -47,6 +48,7 @@ const LandingPage = () => {
   return (
     <>
       {isVisible && <NotificationBanner />}
+      {isSpinnerVisible && <Spinner />}
       <div className="landing-container" style={{ width: `${leftPanelWidth}vw` }}>
         <div className="landing-container-layer">
           <div className="landing-container_block" style={{ width: `${blockWidth}vw` }}>
@@ -110,6 +112,7 @@ const LandingPage = () => {
                       </div>
 
                       <Button name="Proceed" />
+                      {/* <ClipLoader size={20} color={"#fff"} loading={true} /> */}
                     </form>
                   )}
                 </div>

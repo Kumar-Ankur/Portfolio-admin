@@ -26,6 +26,12 @@ const NotificationReducer = (state, action) => {
         message: "",
       };
 
+    case "SET_IS_LOADER_VISIBLE":
+      return {
+        ...state,
+        isSpinnerVisible: action.payload,
+      };
+
     default:
       return state;
   }

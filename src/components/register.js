@@ -4,7 +4,7 @@ import NotificationContext from "../context/notification/notification-context";
 import Button from "./presentation/button";
 
 const Register = () => {
-  const { setNotificationMessage, setIsVisible } = useContext(NotificationContext);
+  const { setNotificationMessage, setIsVisible, setIsSpinnerVisible } = useContext(NotificationContext);
   const [isEyeVisible, setIsEyeVisible] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isHintVisible, setIsHintVisible] = useState(false);
@@ -101,6 +101,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsVisible(false);
+    setIsSpinnerVisible(true);
     if (isVerified) {
       fetch("http://localhost:4000/user/verify", {
         method: "POST",
@@ -112,6 +113,7 @@ const Register = () => {
       })
         .then((res) => res.json())
         .then((res) => {
+          setIsSpinnerVisible(false);
           if (res.verifyEmail && res.verifyEmail.status === "In_Active") {
             setIsVerified(true);
             setIsRegisterVisible(false);
@@ -140,6 +142,7 @@ const Register = () => {
       })
         .then((res) => res.json())
         .then((res) => {
+          setIsSpinnerVisible(false);
           if (res.status && res.status === "fail") {
             setIsVerified(true);
             setIsRegisterVisible(false);

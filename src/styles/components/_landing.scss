@@ -220,23 +220,3 @@
 .outer:hover .inner:after {
   bottom: 0;
 }
-
-// .tag {
-//   width: 2rem;
-//   height: 2rem;
-//   border: 1px solid $primary;
-//   position: absolute;
-//   right: 1rem;
-//   top: 1rem;
-
-//   &-remove::before {
-//     content: "x";
-//     color: $primary;
-//     font-weight: 300;
-//     font-size: $font-size-5;
-//     align-items: center;
-//     cursor: pointer;
-//     left: 0.5rem;
-//     position: absolute;
-//   }
-// }
