@@ -1,0 +1,9 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 13rem;
+  height: 4rem;
+  background: $grey;
+  width: calc(100vw - 13rem);
+  color: $white;
+}

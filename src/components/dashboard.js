@@ -1,11 +1,18 @@
 import React from "react";
+import SideNav from "./sidenav";
+import Header from "./header";
+import Heading from "./heading";
+import Content from "./content";
 
 const Dashboard = () => {
   const userDetail = JSON.parse(sessionStorage.getItem("userDetail")) || {};
   return (
-    <h1>
-      Welcome {userDetail.firstName} {userDetail.lastName} ({userDetail.profileName})
-    </h1>
+    <>
+      <SideNav />
+      <Header />
+      <Heading />
+      <Content />
+    </>
   );
 };
 

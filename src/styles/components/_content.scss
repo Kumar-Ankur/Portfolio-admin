@@ -1,0 +1,22 @@
+.content {
+  position: relative;
+  top: 8rem;
+  left: 13rem;
+  width: calc(100vw - 13rem);
+  background: $lightGrey;
+  padding: 1rem;
+  height: calc(100vh - 8rem);
+  z-index: -10000;
+
+  &_main {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    background: #fff;
+    width: calc(100vw - 17rem);
+    height: calc(100vh - 12rem);
+    z-index: 10000;
+  }
+}
