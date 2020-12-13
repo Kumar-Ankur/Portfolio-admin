@@ -92,6 +92,43 @@
       }
     }
   }
+
+  &_uploadImage {
+    position: absolute;
+    width: 17rem;
+    height: 6rem;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+    left: 18rem;
+    top: 13rem;
+    border-radius: 10px;
+    animation: fadein ease-in-out 1s;
+  }
+}
+
+.uploadLabel {
+  position: absolute;
+  top: 0.6rem;
+  left: 2rem;
+  color: $secondary;
+}
+
+.uploadIcon {
+  position: absolute;
+  top: 2rem;
+  font-size: 1.8rem;
+  right: 1rem;
+  cursor: pointer;
+  color: $primary;
+}
+
+.inputForm {
+  position: absolute;
+  top: 1.9rem;
+  left: 2rem;
+  width: 15rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  border: none;
 }
 
 @keyframes fadein {
