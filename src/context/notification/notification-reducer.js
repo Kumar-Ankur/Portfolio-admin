@@ -32,6 +32,12 @@ const NotificationReducer = (state, action) => {
         isSpinnerVisible: action.payload,
       };
 
+    case "SET_SELECTED_OPTION":
+      return {
+        ...state,
+        selected_option: action.payload,
+      };
+
     default:
       return state;
   }

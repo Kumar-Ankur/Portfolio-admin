@@ -6,4 +6,28 @@
   background: $grey;
   width: calc(100vw - 13rem);
   color: $white;
+
+  &_hamburger {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+  }
+
+  &_setting {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 4rem;
+    cursor: pointer;
+  }
+
+  &_logout {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
 }

@@ -8,6 +8,7 @@ const NotificationState = (props) => {
     isVisible: false,
     isLoginSelected: true,
     isSpinnerVisible: false,
+    selected_option: "Introduction",
   };
 
   const [state, dispatch] = useReducer(NotificationReducer, initialState);
@@ -46,6 +47,13 @@ const NotificationState = (props) => {
     });
   };
 
+  const SetSelectedOption = (value) => {
+    dispatch({
+      type: "SET_SELECTED_OPTION",
+      payload: value,
+    });
+  };
+
   return (
     <NotificationContext.Provider
       value={{
@@ -53,11 +61,13 @@ const NotificationState = (props) => {
         isVisible: state.isVisible,
         isLoginSelected: state.isLoginSelected,
         isSpinnerVisible: state.isSpinnerVisible,
+        selected_option: state.selected_option,
         setNotificationMessage,
         emptyNotificationMessage,
         setIsVisible,
         setIsLoginSelected,
         setIsSpinnerVisible,
+        SetSelectedOption,
       }}
     >
       {props.children}
