@@ -46,20 +46,6 @@ const NotificationState = (props) => {
     });
   };
 
-  const setUserDetail = (user) => {
-    dispatch({
-      type: "SET_USER_DETAIL",
-      payload: user,
-    });
-  };
-
-  const setUserLoggedIn = (value) => {
-    dispatch({
-      type: "SET_IS_USER_LOGGED_IN",
-      payload: value,
-    });
-  };
-
   return (
     <NotificationContext.Provider
       value={{
