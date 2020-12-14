@@ -1,0 +1,31 @@
+.sidenav {
+  &_section {
+    position: absolute;
+    border: 1px solid $primary;
+    width: 11rem;
+    left: 1rem;
+    right: 1rem;
+    top: 13rem;
+    height: auto;
+
+    &-lists {
+      position: absolute;
+      top: 2rem;
+      width: 12rem;
+      left: 1rem;
+      height: auto;
+
+      &_list {
+        margin-bottom: 3rem;
+        cursor: pointer;
+        color: $grey;
+
+        &-icon {
+          position: relative;
+          right: 0.8rem;
+          top: 0.2rem;
+        }
+      }
+    }
+  }
+}

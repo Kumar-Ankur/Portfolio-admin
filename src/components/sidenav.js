@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileImage from "./profileImage";
+import SideOption from "./sideOptions";
 
 const SideNav = () => {
   return (
@@ -8,6 +9,7 @@ const SideNav = () => {
         portfolio<span style={{ fontWeight: "normal" }}>portal</span>
       </div>
       <ProfileImage />
+      <SideOption />
     </div>
   );
 };
