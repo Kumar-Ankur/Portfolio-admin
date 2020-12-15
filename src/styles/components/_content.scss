@@ -18,5 +18,38 @@
     width: calc(100vw - 17rem);
     height: calc(100vh - 12rem);
     z-index: 10000;
+
+    &-section {
+      position: absolute;
+      width: 60%;
+      height: calc(100vh - 12rem);
+      display: inline-block;
+    }
+
+    &-subsection {
+      position: absolute;
+      right: 0;
+      width: 40%;
+      height: calc(100vh - 12rem);
+      display: inline-block;
+      background: $lightGrey;
+
+      &_weather {
+        position: relative;
+        width: 95%;
+        margin-left: 5%;
+        height: calc(100vh - 12rem - 52%);
+        background: #01c0c8;
+      }
+
+      &_news {
+        position: relative;
+        width: 95%;
+        height: calc(100vh - 12rem - 52%);
+        background: #fb9678;
+        margin-top: 1.4rem;
+        margin-left: 5%;
+      }
+    }
   }
 }

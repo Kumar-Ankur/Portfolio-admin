@@ -1,0 +1,61 @@
+.weather {
+  position: relative;
+  color: $white;
+  height: 100%;
+
+  &_temp {
+    position: absolute;
+    bottom: 5rem;
+    left: 2rem;
+    font-size: 3rem;
+
+    &-degree {
+      position: absolute;
+      bottom: 1rem;
+    }
+  }
+
+  &_location {
+    left: 2rem;
+    position: absolute;
+    bottom: 3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  &_icon {
+    position: absolute;
+    right: 2rem;
+    background: transparent;
+    top: 1.2rem;
+  }
+
+  &_text {
+    position: absolute;
+    right: 1rem;
+    top: 5rem;
+    text-transform: uppercase;
+  }
+
+  &_date {
+    position: absolute;
+    right: 1rem;
+    top: 6.5rem;
+    text-transform: uppercase;
+  }
+}
+
+.weatherSpinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: #388697;
+
+  &_loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
