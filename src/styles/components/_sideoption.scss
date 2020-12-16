@@ -18,7 +18,80 @@
       &_list {
         margin-bottom: 3rem;
         cursor: pointer;
-        color: $grey;
+
+        &-border {
+          &_intro {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: -0.2rem;
+          }
+
+          &_about {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 3.8rem;
+          }
+
+          &_education {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 7.8rem;
+          }
+
+          &_oproject {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 11.8rem;
+          }
+
+          &_pproject {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 15.8rem;
+          }
+
+          &_blog {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 19.8rem;
+          }
+
+          &_award {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 23.8rem;
+          }
+
+          &_contact {
+            position: absolute;
+            width: 0.2rem;
+            height: 2rem;
+            background: $primary;
+            left: -2rem;
+            top: 27.8rem;
+          }
+        }
 
         &-icon {
           position: relative;
