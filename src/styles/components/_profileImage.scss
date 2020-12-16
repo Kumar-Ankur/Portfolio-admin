@@ -28,7 +28,7 @@
   &_profileName {
     position: absolute;
     top: 10rem;
-    left: 0.2rem;
+    left: 0.9rem;
     color: $secondary;
 
     &-caret {
@@ -49,6 +49,7 @@
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     animation: fadein ease-in-out 1s;
+    z-index: 100000;
 
     ul {
       position: absolute;

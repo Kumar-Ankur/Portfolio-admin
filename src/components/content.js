@@ -1,4 +1,5 @@
 import React from "react";
+import News from "./news";
 import Weather from "./weather";
 
 const Content = () => {
@@ -10,7 +11,9 @@ const Content = () => {
           <div className="content_main-subsection_weather">
             <Weather />
           </div>
-          <div className="content_main-subsection_news"></div>
+          <div className="content_main-subsection_news">
+            <News />
+          </div>
         </div>
       </div>
     </div>
