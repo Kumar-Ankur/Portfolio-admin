@@ -5,7 +5,6 @@
     left: 13rem;
     height: 4rem;
     background: $grey;
-    // width: calc(100vw - 13rem);
     color: $white;
     width: calc(100vw - 13rem);
   }
@@ -16,7 +15,6 @@
     left: 5rem;
     height: 4rem;
     background: $grey;
-    // width: calc(100vw - 13rem);
     color: $white;
     width: calc(100vw - 5rem);
   }
@@ -26,6 +24,22 @@
     font-size: 1.5rem;
     top: 1rem;
     left: 1rem;
+    cursor: pointer;
+  }
+
+  &_notification {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 10rem;
+    cursor: pointer;
+  }
+
+  &_inbox {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 7rem;
     cursor: pointer;
   }
 
