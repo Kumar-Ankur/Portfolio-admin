@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import NotificationContext from "../context/notification/notification-context";
 import Introduction from "./introduction";
 import About from "./about";
@@ -13,7 +14,7 @@ import Inbox from "./inbox";
 import Notification from "./notification";
 
 const Container = () => {
-  const { selected_option } = useContext(NotificationContext);
+  const { selected_option, SetSelectedOption } = useContext(NotificationContext);
 
   const renderedProps = () => {
     switch (selected_option) {
@@ -54,7 +55,68 @@ const Container = () => {
         return <Introduction />;
     }
   };
-  return <>{renderedProps()}</>;
+
+  const handleNextContent = () => {
+    if (selected_option === "Introduction") {
+      SetSelectedOption("About");
+    } else if (selected_option === "About") {
+      SetSelectedOption("Education");
+    } else if (selected_option === "Education") {
+      SetSelectedOption("Official Project");
+    } else if (selected_option === "Official Project") {
+      SetSelectedOption("Personal Project");
+    } else if (selected_option === "Personal Project") {
+      SetSelectedOption("Blogs");
+    } else if (selected_option === "Blogs") {
+      SetSelectedOption("Awards/Certification");
+    } else if (selected_option === "Awards/Certification") {
+      SetSelectedOption("Contact us");
+    }
+  };
+
+  const handlePreviousContent = () => {
+    if (selected_option === "Contact us") {
+      SetSelectedOption("Awards/Certification");
+    } else if (selected_option === "Awards/Certification") {
+      SetSelectedOption("Blogs");
+    } else if (selected_option === "Blogs") {
+      SetSelectedOption("Personal Project");
+    } else if (selected_option === "Personal Project") {
+      SetSelectedOption("Official Project");
+    } else if (selected_option === "Official Project") {
+      SetSelectedOption("Education");
+    } else if (selected_option === "Education") {
+      SetSelectedOption("About");
+    } else if (selected_option === "About") {
+      SetSelectedOption("Introduction");
+    }
+  };
+
+  return (
+    <>
+      {selected_option !== "Profile Setting" && selected_option !== "Inbox" && selected_option !== "Notification" ? (
+        <div className="container_navigation">
+          {selected_option !== "Introduction" ? (
+            <div className="container_navigation-back" onClick={() => handlePreviousContent()}>
+              <span className="container_navigation-back_icon">
+                <AiOutlineDoubleLeft />
+              </span>
+              Previous
+            </div>
+          ) : null}
+          {selected_option !== "Contact us" ? (
+            <div className="container_navigation-next" onClick={() => handleNextContent()}>
+              Next
+              <span className="container_navigation-next_icon">
+                <AiOutlineDoubleRight />
+              </span>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+      <div className="container_content">{renderedProps()}</div>
+    </>
+  );
 };
 
 export default Container;
