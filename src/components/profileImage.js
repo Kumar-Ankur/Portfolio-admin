@@ -5,7 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 
 const ProfileImage = () => {
   const userDetail = JSON.parse(sessionStorage.getItem("userDetail")) || {};
-  const { setIsSpinnerVisible, setNotificationMessage, setIsVisible } = useContext(NotificationContext);
+  const { setIsSpinnerVisible, setNotificationMessage, setIsVisible, side_nav_open } = useContext(NotificationContext);
   const [isCaretClicked, setIsCaretClicked] = useState(false);
   const [uploadImageClicked, setUploadImageClicked] = useState(false);
   const [image, setImage] = useState("");
@@ -132,9 +132,9 @@ const ProfileImage = () => {
   };
   return (
     <>
-      <div className="sidenav_image">
+      <div className="sidenav_image" style={{ width: side_nav_open ? "8rem" : "2rem", left: side_nav_open ? "1.8rem" : "0rem" }}>
         {image ? (
-          <img src={image} alt="img" className="sidenav_image-img" />
+          <img src={image} alt="img" className="sidenav_image-img" style={{ left: side_nav_open ? "1.5rem" : "0rem" }} />
         ) : (
           <span className="sidenav_image-img">
             <span className="sidenav_image-img_default">
@@ -144,7 +144,7 @@ const ProfileImage = () => {
         )}
       </div>
 
-      <div className="sidenav_profileName">
+      <div className="sidenav_profileName" style={{ display: side_nav_open ? "block" : "none" }}>
         {userDetail.firstName} {userDetail.lastName} ({userDetail.profileName}){" "}
         <span
           className="sidenav_profileName-caret"

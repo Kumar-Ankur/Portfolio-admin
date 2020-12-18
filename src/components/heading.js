@@ -3,9 +3,9 @@ import NotificationContext from "../context/notification/notification-context";
 import { BiPlusCircle } from "react-icons/bi";
 
 const Heading = () => {
-  const { selected_option } = useContext(NotificationContext);
+  const { selected_option, side_nav_open } = useContext(NotificationContext);
   return (
-    <div className="heading">
+    <div className={side_nav_open ? "heading_sideNavOpen" : "heading_sideNavClose"}>
       <div className="heading_title">{selected_option}</div>
       <div className="heading_breadcumb">
         <span>{"Home > "}</span>

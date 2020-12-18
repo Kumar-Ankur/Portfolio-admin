@@ -1,12 +1,25 @@
 .content {
-  position: relative;
-  top: 8rem;
-  left: 13rem;
-  width: calc(100vw - 13rem);
-  background: $lightGrey;
-  padding: 1rem;
-  height: calc(100vh - 8rem);
-  z-index: -10000;
+  &_sideNavOpen {
+    position: relative;
+    top: 8rem;
+    left: 13rem;
+    width: calc(100vw - 13rem);
+    background: $lightGrey;
+    padding: 1rem;
+    height: calc(100vh - 8rem);
+    z-index: -10000;
+  }
+
+  &_sideNavClose {
+    position: relative;
+    top: 8rem;
+    left: 5rem;
+    width: calc(100vw - 5rem);
+    background: $lightGrey;
+    padding: 1rem;
+    height: calc(100vh - 8rem);
+    z-index: -10000;
+  }
 
   &_main {
     position: absolute;
@@ -18,6 +31,30 @@
     width: calc(100vw - 17rem);
     height: calc(100vh - 12rem);
     z-index: 10000;
+
+    &_sideNavOpen {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      right: 2rem;
+      bottom: 2rem;
+      background: #fff;
+      width: calc(100vw - 17rem);
+      height: calc(100vh - 12rem);
+      z-index: 10000;
+    }
+
+    &_sideNavClose {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      right: 2rem;
+      bottom: 2rem;
+      background: #fff;
+      width: calc(100vw - 9rem);
+      height: calc(100vh - 12rem);
+      z-index: 10000;
+    }
 
     &-section {
       position: absolute;

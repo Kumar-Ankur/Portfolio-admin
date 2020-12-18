@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import NotificationContext from "../context/notification/notification-context";
 import News from "./news";
 import Weather from "./weather";
 
 const Content = () => {
+  const { side_nav_open } = useContext(NotificationContext);
   return (
-    <div className="content">
-      <div className="content_main">
+    <div className={side_nav_open ? "content_sideNavOpen" : "content_sideNavClose"}>
+      <div className={side_nav_open ? "content_main_sideNavOpen" : "content_main_sideNavClose"}>
         <div className="content_main-section"></div>
         <div className="content_main-subsection">
           <div className="content_main-subsection_weather">

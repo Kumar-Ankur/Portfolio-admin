@@ -1,11 +1,25 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 13rem;
-  height: 4rem;
-  background: $grey;
-  width: calc(100vw - 13rem);
-  color: $white;
+  &_sideNavOpen {
+    position: fixed;
+    top: 0;
+    left: 13rem;
+    height: 4rem;
+    background: $grey;
+    // width: calc(100vw - 13rem);
+    color: $white;
+    width: calc(100vw - 13rem);
+  }
+
+  &_sideNavClose {
+    position: fixed;
+    top: 0;
+    left: 5rem;
+    height: 4rem;
+    background: $grey;
+    // width: calc(100vw - 13rem);
+    color: $white;
+    width: calc(100vw - 5rem);
+  }
 
   &_hamburger {
     position: absolute;

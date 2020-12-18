@@ -9,6 +9,7 @@ const NotificationState = (props) => {
     isLoginSelected: true,
     isSpinnerVisible: false,
     selected_option: "Introduction",
+    side_nav_open: true,
   };
 
   const [state, dispatch] = useReducer(NotificationReducer, initialState);
@@ -54,6 +55,13 @@ const NotificationState = (props) => {
     });
   };
 
+  const setSideNavOpen = (value) => {
+    dispatch({
+      type: "SET_SIDE_NAV_OPEN",
+      payload: value,
+    });
+  };
+
   return (
     <NotificationContext.Provider
       value={{
@@ -62,12 +70,14 @@ const NotificationState = (props) => {
         isLoginSelected: state.isLoginSelected,
         isSpinnerVisible: state.isSpinnerVisible,
         selected_option: state.selected_option,
+        side_nav_open: state.side_nav_open,
         setNotificationMessage,
         emptyNotificationMessage,
         setIsVisible,
         setIsLoginSelected,
         setIsSpinnerVisible,
         SetSelectedOption,
+        setSideNavOpen,
       }}
     >
       {props.children}

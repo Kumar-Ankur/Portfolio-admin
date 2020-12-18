@@ -38,6 +38,12 @@ const NotificationReducer = (state, action) => {
         selected_option: action.payload,
       };
 
+    case "SET_SIDE_NAV_OPEN":
+      return {
+        ...state,
+        side_nav_open: action.payload,
+      };
+
     default:
       return state;
   }

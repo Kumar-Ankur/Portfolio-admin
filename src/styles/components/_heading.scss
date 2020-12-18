@@ -1,9 +1,19 @@
 .heading {
-  position: fixed;
-  left: 13rem;
-  width: calc(100vw - 13rem);
-  top: 4rem;
-  height: 4rem;
+  &_sideNavOpen {
+    position: fixed;
+    left: 13rem;
+    width: calc(100vw - 13rem);
+    top: 4rem;
+    height: 4rem;
+  }
+
+  &_sideNavClose {
+    position: fixed;
+    left: 5rem;
+    width: calc(100vw - 5rem);
+    top: 4rem;
+    height: 4rem;
+  }
 
   &_title {
     position: absolute;
