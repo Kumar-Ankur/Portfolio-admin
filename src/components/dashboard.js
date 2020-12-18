@@ -6,17 +6,32 @@ import SideNav from "./sidenav";
 import Header from "./header";
 import Heading from "./heading";
 import Content from "./content";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
-  const { isSpinnerVisible, isVisible } = useContext(NotificationContext);
+  const { isSpinnerVisible, isVisible, resetDefaultState } = useContext(NotificationContext);
+  const isUserLoggedIn = sessionStorage.getItem("isUserLoggedIn") || false;
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("isUserLoggedIn");
+    sessionStorage.removeItem("userDetail");
+    resetDefaultState();
+  };
+
   return (
     <>
-      {isSpinnerVisible && <Spinner />}
-      {isVisible && <NotificationBanner />}
-      <SideNav />
-      <Header />
-      <Heading />
-      <Content />
+      {isUserLoggedIn ? (
+        <>
+          {isSpinnerVisible && <Spinner />}
+          {isVisible && <NotificationBanner />}
+          <SideNav />
+          <Header handleLogout={handleLogout} />
+          <Heading />
+          <Content />
+        </>
+      ) : (
+        <Redirect to="/" />
+      )}
     </>
   );
 };

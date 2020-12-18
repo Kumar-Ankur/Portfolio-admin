@@ -41,8 +41,10 @@ const Login = (props) => {
           setIsVisible(true);
         } else {
           sessionStorage.setItem("userDetail", JSON.stringify(res.userDetail));
-          setIsRedirect(true);
           props.setUserLoggedInStatus(true);
+          setNotificationMessage("");
+          setIsVisible(false);
+          setIsRedirect(true);
         }
       })
       .catch((err) => {

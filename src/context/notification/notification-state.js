@@ -62,6 +62,12 @@ const NotificationState = (props) => {
     });
   };
 
+  const resetDefaultState = () => {
+    dispatch({
+      type: "RESET_DEFAULT_STATE",
+    });
+  };
+
   return (
     <NotificationContext.Provider
       value={{
@@ -78,6 +84,7 @@ const NotificationState = (props) => {
         setIsSpinnerVisible,
         SetSelectedOption,
         setSideNavOpen,
+        resetDefaultState,
       }}
     >
       {props.children}

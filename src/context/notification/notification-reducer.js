@@ -44,6 +44,17 @@ const NotificationReducer = (state, action) => {
         side_nav_open: action.payload,
       };
 
+    case "RESET_DEFAULT_STATE":
+      return {
+        ...state,
+        message: "",
+        isVisible: false,
+        isLoginSelected: true,
+        isSpinnerVisible: false,
+        selected_option: "Introduction",
+        side_nav_open: true,
+      };
+
     default:
       return state;
   }
