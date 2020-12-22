@@ -1,0 +1,206 @@
+.permissionSpinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  &_loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.permission {
+  &_toggle {
+    width: 90%;
+    height: 2rem;
+    border: 1px solid $secondary;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+
+    &-inactive {
+      display: inline-block;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      border-radius: 15px;
+      transition: ease-in-out all 0.2s;
+
+      span {
+        position: absolute;
+        left: 1rem;
+        top: 0.4rem;
+      }
+    }
+
+    &-all {
+      display: inline-block;
+      width: 50%;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      border-radius: 15px;
+      transition: ease-in-out all 0.2s;
+
+      span {
+        position: absolute;
+        top: 0.4rem;
+        right: 1rem;
+      }
+    }
+  }
+
+  &_nocontent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 40%;
+    font-size: 2rem;
+  }
+
+  &_allUser {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    bottom: 3rem;
+    right: 2rem;
+    overflow: scroll;
+
+    &-container {
+      position: relative;
+      width: 100%;
+      height: 7rem;
+
+      &_email {
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 100%;
+      }
+
+      &_admin {
+        position: absolute;
+        display: inline-block;
+        top: 3rem;
+        left: 2rem;
+      }
+
+      &_status {
+        position: absolute;
+        display: inline-block;
+        top: 3rem;
+        left: 10rem;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  small {
+    font-size: 0.5em;
+  }
+}
+
+.responsive-table {
+  li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .table-header {
+    background-color: #95a5a6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .col-1 {
+    flex-basis: 25%;
+  }
+
+  .col-2 {
+    flex-basis: 25%;
+  }
+  .col-3 {
+    flex-basis: 25%;
+  }
+  .col-4 {
+    flex-basis: 25%;
+  }
+
+  .colm-1 {
+    flex-basis: 40%;
+  }
+
+  .colm-2 {
+    flex-basis: 20%;
+  }
+  .colm-3 {
+    flex-basis: 20%;
+  }
+  .colm-4 {
+    flex-basis: 20%;
+  }
+
+  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+    .table-row {
+    }
+    li {
+      display: block;
+    }
+    .col {
+      flex-basis: 100%;
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.tick {
+  color: $primary;
+  font-size: 2.5rem;
+  position: relative;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.cross {
+  color: $secondary;
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

@@ -15,7 +15,7 @@ const SideOption = () => {
   const { SetSelectedOption, selected_option, side_nav_open } = useContext(NotificationContext);
   return (
     <div className="sidenav_section" style={{ width: side_nav_open ? "11rem" : "3rem", top: side_nav_open ? "13rem" : "10rem" }}>
-      <div className="sidenav_section-lists">
+      <div className="sidenav_section-lists" style={{ width: side_nav_open ? "12rem" : "0rem" }}>
         <div
           className="sidenav_section-lists_list"
           style={{

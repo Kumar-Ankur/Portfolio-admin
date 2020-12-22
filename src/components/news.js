@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import dummy from "../assets/dummy_image.png";
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -12,7 +13,11 @@ const News = () => {
         const carouselData = res.articles.map((news) => {
           return (
             <>
-              <img src={news.urlToImage} alt={news.title} key={news.title} className="sliderImg" />
+              {news.urlToImage ? (
+                <img src={news.urlToImage} alt={news.title} key={news.title} className="sliderImg" />
+              ) : (
+                <img src={dummy} alt={news.title} key={news.title} className="sliderImg" />
+              )}
               <p className="slider_title">{news.title}</p>
             </>
           );

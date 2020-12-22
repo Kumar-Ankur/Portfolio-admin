@@ -5,7 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 
 const ProfileImage = () => {
   const userDetail = JSON.parse(sessionStorage.getItem("userDetail")) || {};
-  const { setIsSpinnerVisible, setNotificationMessage, setIsVisible, side_nav_open } = useContext(NotificationContext);
+  const { setIsSpinnerVisible, setNotificationMessage, setIsVisible, side_nav_open, isVisible } = useContext(NotificationContext);
   const [isCaretClicked, setIsCaretClicked] = useState(false);
   const [uploadImageClicked, setUploadImageClicked] = useState(false);
   const [image, setImage] = useState("");
@@ -14,7 +14,7 @@ const ProfileImage = () => {
       setIsSpinnerVisible(true);
       fetchProfileImageId(userDetail.profileImageId, true);
     }
-  }, []);
+  }, [isVisible]);
 
   const deletePreviousImageId = (profileImageId, isDeleteImageClicked = false) => {
     fetch(`http://localhost:4000/image/attachment/${profileImageId}`, {
