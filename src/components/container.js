@@ -14,7 +14,7 @@ import Inbox from "./inbox";
 import Notification from "./notification";
 
 const Container = () => {
-  const { selected_option, SetSelectedOption } = useContext(NotificationContext);
+  const { selected_option, SetSelectedOption, setNotificationMessage, setIsVisible } = useContext(NotificationContext);
 
   const renderedProps = () => {
     switch (selected_option) {
@@ -57,6 +57,8 @@ const Container = () => {
   };
 
   const handleNextContent = () => {
+    setIsVisible(false);
+    setNotificationMessage("");
     if (selected_option === "Introduction") {
       SetSelectedOption("About");
     } else if (selected_option === "About") {
@@ -75,6 +77,8 @@ const Container = () => {
   };
 
   const handlePreviousContent = () => {
+    setIsVisible(false);
+    setNotificationMessage("");
     if (selected_option === "Contact us") {
       SetSelectedOption("Awards/Certification");
     } else if (selected_option === "Awards/Certification") {
@@ -101,12 +105,10 @@ const Container = () => {
               <span className="container_navigation-back_icon">
                 <AiOutlineDoubleLeft />
               </span>
-              Previous
             </div>
           ) : null}
           {selected_option !== "Contact us" ? (
             <div className="container_navigation-next" onClick={() => handleNextContent()}>
-              Next
               <span className="container_navigation-next_icon">
                 <AiOutlineDoubleRight />
               </span>

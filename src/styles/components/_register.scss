@@ -35,7 +35,8 @@
   color: $black;
 }
 
-input {
+input,
+textarea {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -45,7 +46,18 @@ input {
   background: transparent;
 }
 
-input:focus {
+textarea {
+  resize: none;
+}
+
+textarea:focus::-webkit-textarea-placeholder,
+textarea:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+input:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -66,6 +78,13 @@ input:focus {
 input:focus ~ .group_text,
 input:not([value=""]):valid ~ .group_text {
   top: -10px;
+  font-size: 14px;
+  color: $primary;
+}
+
+textarea:focus ~ .group_text,
+textarea:not(:empty) ~ .group_text {
+  top: -20px;
   font-size: 14px;
   color: $primary;
 }
@@ -101,6 +120,11 @@ input:focus ~ .bar:after {
   width: 50%;
 }
 
+textarea:focus ~ .bar:before,
+textarea:focus ~ .bar:after {
+  width: 50%;
+}
+
 /* HIGHLIGHTER ================================== */
 .highlight {
   position: absolute;
@@ -114,6 +138,12 @@ input:focus ~ .bar:after {
 
 /* active state */
 input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+textarea:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;

@@ -1,0 +1,89 @@
+.introduction {
+  position: absolute;
+  width: 80%;
+  margin: 2rem;
+  transition: ease-in-out all 0.3s;
+
+  &_skill {
+    position: relative;
+    display: inline-block;
+    margin-right: 2rem;
+    color: $secondary;
+    cursor: pointer;
+  }
+
+  &_addSkill {
+    position: absolute;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $secondary;
+    bottom: 3.5rem;
+    right: 0;
+  }
+
+  &_skillList {
+    width: 100%;
+    height: 5.5rem;
+    position: absolute;
+    overflow: scroll;
+    border-radius: 10px;
+
+    &-list {
+      position: relative;
+      border: 1px solid $secondary;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem;
+      display: inline-block;
+
+      &_cancel {
+        position: relative;
+        right: -0.7rem;
+        color: $secondary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &_button {
+    transition: ease-in-out all 0.3s;
+    position: relative;
+    top: 6rem;
+    // bottom: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.intro {
+  &_container {
+    position: absolute;
+    width: 80%;
+    margin: 2rem;
+    transition: ease-in-out all 0.3s;
+
+    &-left {
+      position: relative;
+      width: 20%;
+      display: inline-block;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &-right {
+      position: relative;
+      width: 60%;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
