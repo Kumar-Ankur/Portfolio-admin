@@ -12,7 +12,7 @@ import { FiAward } from "react-icons/fi";
 import NotificationContext from "../context/notification/notification-context";
 
 const SideOption = () => {
-  const { SetSelectedOption, selected_option, side_nav_open } = useContext(NotificationContext);
+  const { SetSelectedOption, selected_option, side_nav_open, setNotificationMessage, setIsVisible } = useContext(NotificationContext);
   return (
     <div className="sidenav_section" style={{ width: side_nav_open ? "11rem" : "3rem", top: side_nav_open ? "13rem" : "10rem" }}>
       <div className="sidenav_section-lists" style={{ width: side_nav_open ? "12rem" : "0rem" }}>
@@ -22,7 +22,11 @@ const SideOption = () => {
             color: selected_option === "Introduction" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Introduction" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Introduction")}
+          onClick={() => {
+            SetSelectedOption("Introduction");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Introduction" ? (
             <span className="sidenav_section-lists_list-border_intro" style={{ top: side_nav_open ? "-0.2rem" : "0rem" }}></span>
@@ -35,7 +39,11 @@ const SideOption = () => {
         <div
           className="sidenav_section-lists_list"
           style={{ color: selected_option === "About" ? "#388697" : "#9b9b9b", fontWeight: selected_option === "About" ? "bold" : "normal" }}
-          onClick={() => SetSelectedOption("About")}
+          onClick={() => {
+            SetSelectedOption("About");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "About" ? (
             <span className="sidenav_section-lists_list-border_about" style={{ top: side_nav_open ? "3.8rem" : "4.4rem" }}></span>
@@ -51,7 +59,11 @@ const SideOption = () => {
             color: selected_option === "Education" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Education" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Education")}
+          onClick={() => {
+            SetSelectedOption("Education");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Education" ? (
             <span className="sidenav_section-lists_list-border_education" style={{ top: side_nav_open ? "7.8rem" : "8.8rem" }}></span>
@@ -67,7 +79,11 @@ const SideOption = () => {
             color: selected_option === "Official Project" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Official Project" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Official Project")}
+          onClick={() => {
+            SetSelectedOption("Official Project");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Official Project" ? (
             <span className="sidenav_section-lists_list-border_oproject" style={{ top: side_nav_open ? "11.8rem" : "13.3rem" }}></span>
@@ -83,7 +99,11 @@ const SideOption = () => {
             color: selected_option === "Personal Project" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Personal Project" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Personal Project")}
+          onClick={() => {
+            SetSelectedOption("Personal Project");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Personal Project" ? (
             <span className="sidenav_section-lists_list-border_pproject" style={{ top: side_nav_open ? "15.8rem" : "17.8rem" }}></span>
@@ -96,7 +116,11 @@ const SideOption = () => {
         <div
           className="sidenav_section-lists_list"
           style={{ color: selected_option === "Blogs" ? "#388697" : "#9b9b9b", fontWeight: selected_option === "Blogs" ? "bold" : "normal" }}
-          onClick={() => SetSelectedOption("Blogs")}
+          onClick={() => {
+            SetSelectedOption("Blogs");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Blogs" ? (
             <span className="sidenav_section-lists_list-border_blog" style={{ top: side_nav_open ? "19.8rem" : "22.3rem" }}></span>
@@ -112,7 +136,11 @@ const SideOption = () => {
             color: selected_option === "Awards/Certification" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Awards/Certification" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Awards/Certification")}
+          onClick={() => {
+            SetSelectedOption("Awards/Certification");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Awards/Certification" ? (
             <span className="sidenav_section-lists_list-border_award" style={{ top: side_nav_open ? "23.8rem" : "26.8rem" }}></span>
@@ -128,7 +156,11 @@ const SideOption = () => {
             color: selected_option === "Contact us" ? "#388697" : "#9b9b9b",
             fontWeight: selected_option === "Contact us" ? "bold" : "normal",
           }}
-          onClick={() => SetSelectedOption("Contact us")}
+          onClick={() => {
+            SetSelectedOption("Contact us");
+            setIsVisible(false);
+            setNotificationMessage("");
+          }}
         >
           {selected_option === "Contact us" ? (
             <span className="sidenav_section-lists_list-border_contact" style={{ top: side_nav_open ? "27.8rem" : "31.3rem" }}></span>
